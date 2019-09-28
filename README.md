@@ -244,3 +244,7 @@ The way this project is organized exists to match this style of working with des
 * A reusable component library using design components
 * Design specs using features
 * Routing using pages
+
+### Experimental
+
+TCR is an idea I want to test on this stack once its more mature. Hang tight and I'll write up more once I try it.
