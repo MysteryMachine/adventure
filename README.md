@@ -165,6 +165,7 @@ Here are some integrations I'm interested in. All of them could reasonably be im
 
 * Sumologic (logging)
 * Pagerduty (monitoring)
+* Sentry (monitoring)
 * Elastic Cloud (searching)
 
 ### Frontend
