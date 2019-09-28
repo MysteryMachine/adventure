@@ -4,7 +4,7 @@ import { initializeStore } from '../reducers/user'
 const isServer = typeof window === 'undefined'
 const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__'
 
-function getOrCreateStore (initialState) {
+function getOrCreateStore (initialState = undefined) {
   // Always make a new store if server, otherwise state is shared between requests
   if (isServer) {
     return initializeStore(initialState)
