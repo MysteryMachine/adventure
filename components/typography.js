@@ -1,3 +1,4 @@
 import React from 'react'
+import css from './typography.css'
 
-export const Body = ({ children }) => <div> {children} </div>
+export const Body = ({ children }) => <div className={css.body}> {children} </div>

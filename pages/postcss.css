@@ -1,0 +1,7 @@
+:root {
+    --brand-color: #F93872
+}
+
+.global {
+    color: var(--brand-color)
+}
