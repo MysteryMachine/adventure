@@ -10,7 +10,7 @@ export interface ApplicationState {
 
 export type ApplicationAction = UserAction;
 
-export const combinedReducer = combineReducers<ApplicationState, UserAction>({
+export const combinedReducer = combineReducers<ApplicationState, ApplicationAction>({
     user: userReducer
 })
 

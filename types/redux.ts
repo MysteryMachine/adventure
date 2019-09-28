@@ -1,4 +1,4 @@
-import { Store, Action } from "redux";
+import { Store } from "redux";
 import { ApplicationState, ApplicationAction } from "../reducers";
 
-export type ApplicationStore = Store<ApplicationState, Action<ApplicationAction>>
+export type ApplicationStore = Store<ApplicationState, ApplicationAction>
