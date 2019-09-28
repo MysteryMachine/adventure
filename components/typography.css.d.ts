@@ -1,1 +1,1 @@
-export const body : string;
+export const body : string

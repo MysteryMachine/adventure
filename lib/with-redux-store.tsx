@@ -1,12 +1,12 @@
 import React from 'react'
 import { initializeStore } from '../reducers'
-import { _App, _AppProps } from '../pages/_app';
-import { AppContextType, InitialProps } from '../types/next';
-import { ApplicationStore } from '../types/redux';
-import { NextComponentType, NextPageContext } from 'next';
-import { Router } from 'next/dist/client/router';
+import { _App, _AppProps } from '../pages/_app'
+import { AppContextType, InitialProps } from '../types/next'
+import { ApplicationStore } from '../types/redux'
+import { NextComponentType, NextPageContext } from 'next'
+import { Router } from 'next/dist/client/router'
 const isServer = typeof window === 'undefined'
-let reduxStore : ApplicationStore | undefined;
+let reduxStore : ApplicationStore | undefined
 
 const getOrCreateStore = () => {
   if (isServer) {

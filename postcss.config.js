@@ -1,5 +1,5 @@
 module.exports = {
-    plugins: {
-      'postcss-css-variables': {}
-    }
+  plugins: {
+    'postcss-css-variables': {}
   }
+}

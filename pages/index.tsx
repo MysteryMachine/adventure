@@ -4,8 +4,8 @@ import HelloWorld from '../features/helloWorld'
 import { Context } from '../types/next'
 
 class Index extends React.Component {
-  static getInitialProps ({ /*reduxStore,*/ req } : Context) {
-    const isServer = !!req
+  static getInitialProps ({ /*reduxStore, req*/ } : Context) {
+    // const isServer = !!req
     // reduxStore.dispatch(...)
 
     return {

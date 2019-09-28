@@ -1,8 +1,8 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
+import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { userReducer, UserAction } from './user'
-import { User } from "../types/user";
-import { ApplicationStore } from "../types/redux";
+import { User } from '../types/user'
+import { ApplicationStore } from '../types/redux'
 
 export interface ApplicationState {
     user: User
@@ -11,10 +11,10 @@ export interface ApplicationState {
 export type ApplicationAction = UserAction;
 
 export const combinedReducer = combineReducers<ApplicationState, ApplicationAction>({
-    user: userReducer
+  user: userReducer
 })
 
-export const initializeStore : () => ApplicationStore = () => 
-     createStore(combinedReducer, composeWithDevTools(applyMiddleware()));
+export const initializeStore : () => ApplicationStore = () =>  
+  createStore(combinedReducer, composeWithDevTools(applyMiddleware()))
 
     

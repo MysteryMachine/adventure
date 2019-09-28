@@ -17,10 +17,11 @@ export class _App extends App<_AppProps & ChildrenMixin> {
       <div className={css.global}>
         <Provider store={reduxStore}>
           <Component {...pageProps} />
-        </Provider>
-      </div>
+        </Provider> 
+      </div> 
     )
   }
 }
 
 export default withReduxStore(_App)
+ 

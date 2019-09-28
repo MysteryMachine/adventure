@@ -1,9 +1,9 @@
-import { AppInitialProps } from 'next/app';
-import { ApplicationStore } from "./redux";
-import { AppContextType, NextPageContext } from 'next/dist/next-server/lib/utils';
-import { Router } from 'next/dist/client/router';
+import { AppInitialProps } from 'next/app'
+import { ApplicationStore } from './redux'
+import { AppContextType, NextPageContext } from 'next/dist/next-server/lib/utils'
+import { Router } from 'next/dist/client/router'
 
- export interface Context extends NextPageContext {
+export interface Context extends NextPageContext {
     reduxStore: ApplicationStore
  }
 
