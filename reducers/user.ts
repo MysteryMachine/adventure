@@ -1,28 +1,21 @@
-import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { User } from "../types/user";
+import { Action } from "redux";
 
-const initialState = {
+const initialState : User = {
   email: 'sal@sisyphus.rocks'
 }
 
-export const actionTypes = {
-  INIT: 'INIT'
+export enum UserActionTypes {
+  INIT = 'INIT',
 }
 
-// REDUCERS
-export const reducer = (state = initialState, action) => {
+export type UserAction = Action<UserActionTypes.INIT>
+
+export const userReducer = (state: User = initialState, action: UserAction): User => {
   switch (action.type) {
-    case actionTypes.INIT:
+    case UserActionTypes.INIT:
       return state
     default:  
       return state
   }
-}
-
-export function initializeStore (state = initialState) {
-  return createStore(
-    reducer,
-    state,
-    composeWithDevTools(applyMiddleware())
-  )
 }

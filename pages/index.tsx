@@ -1,21 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import HelloWorld from '../features/helloWorld'
+import { Context } from '../types/next'
 
 class Index extends React.Component {
-  static getInitialProps ({ reduxStore, req }) {
+  static getInitialProps ({ /*reduxStore,*/ req } : Context) {
     const isServer = !!req
-    // reduxStore.dispatch(serverRenderClock(isServer))
+    // reduxStore.dispatch(...)
 
-    return {}
+    return {
+      initialized: true,
+    }
   }
+
+  timer : NodeJS.Timeout | undefined;
 
   componentDidMount () {
     this.timer = setInterval(() => {}, 1000)
   }
 
   componentWillUnmount () {
-    clearInterval(this.timer)
+    if(this.timer) clearInterval(this.timer)
   }
 
   render () {

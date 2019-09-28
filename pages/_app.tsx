@@ -2,9 +2,15 @@ import App from 'next/app'
 import React from 'react'
 import withReduxStore from '../lib/with-redux-store'
 import { Provider } from 'react-redux'
-import css from './postcss.css'
+import css from './postcss.css' 
+import { ApplicationStore } from '../types/redux'
+import { ChildrenMixin } from '../types/react'
 
-class MyApp extends App {
+export interface _AppProps {
+  reduxStore: ApplicationStore;
+}
+
+export class _App extends App<_AppProps & ChildrenMixin> {
   render () {
     const { Component, pageProps, reduxStore } = this.props
     return (
@@ -17,4 +23,4 @@ class MyApp extends App {
   }
 }
 
-export default withReduxStore(MyApp)
+export default withReduxStore(_App)
