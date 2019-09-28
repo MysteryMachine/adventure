@@ -65,7 +65,6 @@ trying to achieve by using them in the way I am. Here are some of the start bits
 and technology.
 
 * Next.js + Zeit Now
-* FaunaDB
 * Typescript
 
 ### Operations
@@ -81,7 +80,7 @@ Also used in this section
 #### Automated Deployments + Environments
 
 Now now offers a bunch of good tools for deployments. Using Now's easy Github integrations, I can trivially
-get a branch to deploy and be visible. Using Github Jobs, I can run automated testing. FaunaDB's capabilities
+get a branch to deploy and be visible. Using Github CI, I can run automated testing. FaunaDB's capabilities
 in letting me create additional databses trivially allows me to create test environments with ease.
 
 #### Linting + Typechecking
@@ -104,6 +103,69 @@ on fixing them even quicker.
 Integration testing is a critical component of the contract between developers and product. These tests
 can prove that the code meets the ICs specified in product spec for the work. Cypress allows me to run
 individual tests to demonstrate a passing IC.
+
+### Backend
+
+Data is critical in creating applications. The them of the backend section is supporting common patterns
+for access, permissioning, and changing of data, as well as supporting a set of common operations on top
+of data.
+
+Also used in this section
+
+* FaunaDB
+
+Most of the rest of this document talks about goals, and how the technology I use meets those goals.
+The backend section does not follow this rule because FaunaDB and Now are platforms. They provide
+so much functionality out of the box that designing an architecture with them was less about having a problem
+and looking for a solution, and more about having a platform and figuring out what problems were left
+after leveraging the platform.
+
+#### FaunaDB
+
+FaunaDB is amazing. It is a NoSQL database that focuses on the C and P of CAP, while also providing some
+pretty dang good A. I suggest reading their whitepaper and the Jepsen report. I'll wait. 
+
+So here is what FaunaDB offers me as a platform
+
+* A serverless database I can pay to scale as I need
+* A flexible data model
+* A very interesting and power propriatary language for data access and manipulation
+* The concept of authentication, permissioning, and roles baked into the database
+* Client and Server clients
+* The ability to create subdatabases as I want
+
+#### Now
+
+Now finishes up the feature set I want in backends. It's just a dang good serverless platform.
+
+Here's what it offers me
+
+* Github integrations and environments for branches
+* Serverless functions and the ability to make RESTful APIs
+* Serverside rendering
+* The ability to run cron jobs and a RabbitMQ instance via integrations
+* The ability to use some other databases if I wanted to (a Redis instance on Digital Ocean comes
+  to mind as a possible extra in the future.)
+
+#### Migrations
+
+These platforms currently offer me almost everything in my need to have list.
+
+Migrations are the missing part here. To do this, I set up a Github CI job and built a manual way of
+doing migrations
+
+#### Looking Forward
+
+There are some other nice to haves Now does not yet offer. Looking at their integrations section,
+we might have them in the future. Also, to be fair, integrations aren't the end all be all. They're
+just convenient, and I could set up a lot of these things manually with some effort (like I do with Fauna).
+As I evolve this project, I might even do that.
+
+Here are some integrations I'm interested in. All of them could reasonably be implemented manually.
+
+* Sumologic (logging)
+* Pagerduty (monitoring)
+* Elastic Cloud (searching)
 
 ### Frontend
 
