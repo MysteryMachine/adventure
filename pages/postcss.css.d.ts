@@ -1,1 +1,1 @@
-export const global : string
+export const global: string;
