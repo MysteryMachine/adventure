@@ -1,0 +1,1 @@
+export const getEmail = (state)  => state.email
