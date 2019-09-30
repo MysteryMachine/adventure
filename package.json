@@ -5,10 +5,16 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.ts,.tsx"
+    "lint": "eslint . --ext .js,.ts,.tsx",
+    "migrate:up": "node -r ./scripts/dotenv.js ./scripts/migrate/up.js ",
+    "migrate:down": "node -r ./scripts/dotenv.js ./scripts/migrate/down.js",
+    "migrate:create": "node ./scripts/migrate/create.js",
+    "migrate:version": "node -r ./scripts/dotenv.js ./scripts/migrate/version.js"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "dotenv": "^8.1.0",
+    "faunadb": "^2.8.1",
     "next": "latest",
     "postcss": "^7.0.18",
     "postcss-css-variables": "^0.13.0",
