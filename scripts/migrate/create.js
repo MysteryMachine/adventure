@@ -24,18 +24,30 @@ const name = '${id}_${name}';
 const id = '${id}';
 const prev = '${prev || ''}';
 const next = '${next}';
-
-const client = new faunadb.Client({ secret: process.env.FAUNA_DB_SECRET });
+const client =
+  process.env.FAUNA_DB_SUB_SECRET ||
+  (await new faunadb.Client({ secret: process.env.FAUNA_DB_SECRET }).query(
+    q.Get(q.Match(q.Index('_keys_by_name'), db)),
+  )).data.secret;
+  
 const q = faunadb.query;
-
-const up = () => {
-
+const getClient = async () => {
+  const parentClient = new faunadb.Client({ secret: process.env.FAUNA_DB_SECRET });
+  return new faunadb.Client({
+    secret:
+      process.env.FAUNA_DB_SUB_SECRET ||
+      (await parentClient.query(q.Get(q.Match(q.Index('_keys_by_name'), db)))).data.secret,
+  });
 };
   
-const down = () => {
-
+const up = async () => {
+  const client = await getClient();
 };
   
+const down = async () => {
+  const client = await getClient();
+};
+
 module.exports = {
   name,
   id,

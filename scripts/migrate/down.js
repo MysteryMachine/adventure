@@ -27,17 +27,21 @@ if (!myDB) {
   const lastMigrationId = migrationEntry.data.id;
 
   fs.readdir(directoryPath, async (err, files) => {
-    if (err) {
-      return console.log('Unable to scan directory', err);
-    }
+    try {
+      if (err) {
+        return console.log('Unable to scan directory', err);
+      }
 
-    const migrationTable = getMigrationTable(files);
-    let currentMigration = migrationTable[lastMigrationId];
-    console.log(`Rolling back last commit ${currentMigration.name}`);
-    currentMigration.down();
-    await client.query(
-      q.Update(migrationEntry.ref, { data: { name: 'main', id: currentMigration.prev } }),
-    );
+      const migrationTable = getMigrationTable(files);
+      let currentMigration = migrationTable[lastMigrationId];
+      console.log(`Rolling back last commit ${currentMigration.name}`);
+      await currentMigration.down();
+      await client.query(
+        q.Update(migrationEntry.ref, { data: { name: 'main', id: currentMigration.prev } }),
+      );
+    } catch (e) {
+      console.log('Error running migrations', e);
+    }
   });
 })().catch(e => {
   console.log('Error running migrations', e);

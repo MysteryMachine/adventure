@@ -80,23 +80,27 @@ if (!myDB) {
   const lastMigrationId = migrationEntry.data.id;
 
   fs.readdir(directoryPath, async (err, files) => {
-    if (err) {
-      return console.log('Unable to scan directory', err);
-    }
+    try {
+      if (err) {
+        return console.log('Unable to scan directory', err);
+      }
 
-    const migrationTable = getMigrationTable(files);
-    const lastMigration = migrationTable[lastMigrationId];
-    let currentMigration = lastMigration
-      ? migrationTable[lastMigration.next]
-      : orderedMigrations(migrationTable)[0];
-    console.log('Migrating...');
-    while (currentMigration) {
-      console.log(currentMigration.name);
-      currentMigration.up();
-      await client.query(
-        q.Update(migrationEntry.ref, { data: { name: 'main', id: currentMigration.id } }),
-      );
-      currentMigration = migrationTable[currentMigration.next];
+      const migrationTable = getMigrationTable(files);
+      const lastMigration = migrationTable[lastMigrationId];
+      let currentMigration = lastMigration
+        ? migrationTable[lastMigration.next]
+        : orderedMigrations(migrationTable)[0];
+      console.log('Migrating...');
+      while (currentMigration) {
+        console.log(currentMigration.name);
+        await currentMigration.up();
+        await client.query(
+          q.Update(migrationEntry.ref, { data: { name: 'main', id: currentMigration.id } }),
+        );
+        currentMigration = migrationTable[currentMigration.next];
+      }
+    } catch (e) {
+      console.log('Error running migrations', e);
     }
   });
 })().catch(e => {
