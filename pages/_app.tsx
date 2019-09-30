@@ -14,7 +14,7 @@ export class _App extends App<_AppProps & ChildrenMixin> {
   render() {
     const { Component, pageProps, reduxStore } = this.props;
     return (
-      <div className={css.global}>
+      <div className={css.globalStyle}>
         <Provider store={reduxStore}>
           <Component {...pageProps} />
         </Provider>
