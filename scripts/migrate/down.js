@@ -1,7 +1,7 @@
 const faunadb = require('faunadb');
 const path = require('path');
 const fs = require('fs');
-const { getMigrationTable, orderedMigrations } = require('../_util/utils');
+const { getMigrationTable } = require('../_util/utils');
 
 const directoryPath = path.resolve('./migrations');
 
