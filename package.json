@@ -12,7 +12,9 @@
     "migrate:version": "node -r ./scripts/dotenv.js ./scripts/migrate/version.js"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.9",
     "@zeit/next-css": "^1.0.1",
+    "classnames": "^2.2.6",
     "dotenv": "^8.1.0",
     "faunadb": "^2.8.1",
     "next": "latest",

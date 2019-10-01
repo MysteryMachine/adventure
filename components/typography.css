@@ -1,3 +1,14 @@
-.body {
-    font-family: Arial, Helvetica, sans-serif;
+.body,
+.label {
+  font-family: Helvetica, Arial, sans-serif;
+  color: var(--black1);
+}
+
+.label {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.labelOuter {
+  padding-bottom: 4px;
 }

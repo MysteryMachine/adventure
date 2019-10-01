@@ -1,7 +1,14 @@
 :root {
-  --brand-color: #f93872;
+  --black1: #121212;
+  --grey1: #898989;
+  --white1: #fdfdfd;
+  --white2: #fafafa;
+
+  --brand1: #d98787;
 }
 
 .globalStyle {
-  color: var(--brand-color);
+  padding: 0;
+  margin: 0;
+  background-color: var(--white1);
 }

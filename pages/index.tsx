@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HelloWorld from '../features/helloWorld';
+import { Login } from '../features/Login';
 
 class Index extends React.Component {
   static getInitialProps(/*{ reduxStore, req }: : Context*/) {
@@ -23,7 +23,7 @@ class Index extends React.Component {
   }
 
   render() {
-    return <HelloWorld />;
+    return <Login />;
   }
 }
 
