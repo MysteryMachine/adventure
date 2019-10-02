@@ -19,8 +19,12 @@ export const REGISTER = (
   },
 });
 
-export const LOGIN = (email: string, password: string): OfflineAction<UserActionTypes.LOGIN> => ({
+export const LOGIN = (
+  email: string,
+  password: string,
+): OfflineAction<UserActionTypes.LOGIN> & { email: string } => ({
   type: UserActionTypes.LOGIN,
+  email,
   meta: {
     offline: {
       effect: q.Login(q.Select(['ref'], q.Get(q.Match(q.Index(Index.UsersByEmail), email))), {

@@ -19,15 +19,15 @@ export type UserAction =
         data: User;
       };
     }
+  | OfflineAction<UserActionTypes.LOGIN> & {
+      email: string;
+    }
   | OfflineAction<UserActionTypes.LOGIN_SUCCESS> & {
       payload: {
         data: User;
       };
     }
-  | OfflineAction<UserActionTypes.REGISTER>
-  | OfflineAction<UserActionTypes.LOGIN> & {
-      email: string;
-    };
+  | OfflineAction<UserActionTypes.REGISTER>;
 
 export const userReducer = (state: User = initialState, action: UserAction): User => {
   console.log(action);
