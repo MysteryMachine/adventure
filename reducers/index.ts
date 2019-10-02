@@ -1,4 +1,5 @@
-import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import { combineReducers, createStore, applyMiddleware, Store, AnyAction } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { offline } from '@redux-offline/redux-offline';
 import offlineConfig from '@redux-offline/redux-offline/lib/defaults';
 import { userReducer, UserAction } from './user';
@@ -19,8 +20,9 @@ export const combinedReducer = combineReducers<ApplicationState, ApplicationActi
 export const initializeStore: () => ApplicationStore = () =>
   createStore(
     combinedReducer,
-    compose(
-      applyMiddleware(),
+    composeWithDevTools(
+      applyMiddleware<Store<{ [key: string]: any }, AnyAction>, {}>(),
+      // @ts-ignore
       offline({ ...offlineConfig, ...config }),
     ),
   );
