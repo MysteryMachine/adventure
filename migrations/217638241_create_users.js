@@ -5,7 +5,7 @@ const id = '217638241';
 const prev = '';
 const next = '145229292';
 const env = process.env.CI_COMMIT_REF_NAME;
-const db = `${env || process.env.FAUNA_DB_NAME}_db`;
+const db = `${env || process.env.FAUNA_DB_NAME}`;
 
 const q = faunadb.query;
 const getClient = async () => {

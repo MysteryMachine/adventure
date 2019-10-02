@@ -9,7 +9,7 @@ const parentClient = new faunadb.Client({ secret: process.env.FAUNA_DB_SECRET })
 const q = faunadb.query;
 const env = process.env.CI_COMMIT_REF_NAME;
 
-const myDB = `${env || process.env.FAUNA_DB_NAME}_db`;
+const myDB = `${env || process.env.FAUNA_DB_NAME}`;
 
 if (!myDB) {
   console.log('No DB name set for dev environment, please set a FAUNA_DB_NAME');

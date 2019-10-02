@@ -808,6 +808,14 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@redux-offline/redux-offline@^2.5.2":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@redux-offline/redux-offline/-/redux-offline-2.5.2.tgz#f310623271ac47ec324b91377e5a15daf958bf4d"
+  integrity sha512-z/YJg/Ajr2bQXZUQZ5xlNixcG3d9AmH6MRQmYT/NxzPn7CI6bCfdrAd4BVzdUdqQ5ce7/CMftKXmNDlsjARdhA==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    redux-persist "^4.6.0"
+
 "@types/classnames@^2.2.9":
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.9.tgz#d868b6febb02666330410fe7f58f3c4b8258be7b"
@@ -5304,14 +5312,7 @@ redux-devtools-extension@^2.13.2:
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
   integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
 
-redux-offline@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/redux-offline/-/redux-offline-2.0.0.tgz#5896e95477417c8173e083f4f2d977466ec91808"
-  integrity sha1-WJbpVHdBfIFz4IP08tl3Rm7JGAg=
-  dependencies:
-    redux-persist "^4.5.0"
-
-redux-persist@^4.5.0:
+redux-persist@^4.6.0:
   version "4.10.2"
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-4.10.2.tgz#8efdb16cfe882c521a78a6d0bfdfef2437f49f96"
   integrity sha512-U+e0ieMGC69Zr72929iJW40dEld7Mflh6mu0eJtVMLGfMq/aJqjxUM1hzyUWMR1VUyAEEdPHuQmeq5ti9krIgg==

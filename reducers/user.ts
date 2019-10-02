@@ -1,5 +1,5 @@
 import { User } from '../types/user';
-import { Action } from 'redux';
+import { OfflineAction } from '../lib/offline';
 
 const initialState: User = {
   email: 'sal@sisyphus.rocks',
@@ -9,7 +9,7 @@ export enum UserActionTypes {
   INIT = 'INIT',
 }
 
-export type UserAction = Action<UserActionTypes.INIT>;
+export type UserAction = OfflineAction<UserActionTypes.INIT>;
 
 export const userReducer = (state: User = initialState, action: UserAction): User => {
   switch (action.type) {

@@ -1,8 +1,10 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import { offline } from '@redux-offline/redux-offline';
+import offlineConfig from '@redux-offline/redux-offline/lib/defaults';
 import { userReducer, UserAction } from './user';
 import { User } from '../types/user';
 import { ApplicationStore } from '../types/redux';
+import { config } from '../lib/offline';
 
 export interface ApplicationState {
   user: User;
@@ -15,4 +17,10 @@ export const combinedReducer = combineReducers<ApplicationState, ApplicationActi
 });
 
 export const initializeStore: () => ApplicationStore = () =>
-  createStore(combinedReducer, composeWithDevTools(applyMiddleware()));
+  createStore(
+    combinedReducer,
+    compose(
+      applyMiddleware(),
+      offline({ ...offlineConfig, ...config }),
+    ),
+  );
