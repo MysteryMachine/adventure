@@ -24,11 +24,8 @@ const name = '${id}_${name}';
 const id = '${id}';
 const prev = '${prev || ''}';
 const next = '${next}';
-const client =
-  process.env.FAUNA_DB_SUB_SECRET ||
-  (await new faunadb.Client({ secret: process.env.FAUNA_DB_SECRET }).query(
-    q.Get(q.Match(q.Index('_keys_by_name'), db)),
-  )).data.secret;
+const env = process.env.CI_COMMIT_REF_NAME;
+const db = \`\${env || process.env.FAUNA_DB_NAME}\`;
   
 const q = faunadb.query;
 const getClient = async () => {

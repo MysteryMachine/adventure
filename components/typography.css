@@ -1,7 +1,18 @@
 .body,
-.label {
+.label,
+.link {
   font-family: Helvetica, Arial, sans-serif;
   color: var(--black1);
+}
+
+.link,
+.body {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.link {
+  color: var(--brand1);
 }
 
 .label {

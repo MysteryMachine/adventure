@@ -13,7 +13,8 @@ module.exports = {
     let orderedTable = [];
     while (nextItem) {
       orderedTable.push(nextItem);
-      nextItem = migrationTable[ids.find(id => migrationTable[id].prev === nextItem.next)];
+      console.log(ids.find(id => id === nextItem.next));
+      nextItem = migrationTable[ids.find(id => id === nextItem.next)];
     }
     return orderedTable;
   },

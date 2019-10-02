@@ -1,17 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Login } from '../features/Login';
 
-class Index extends React.Component {
-  static getInitialProps(/*{ reduxStore, req }: : Context*/) {
-    // const isServer = !!req
-    // reduxStore.dispatch(...)
-
-    return {
-      initialized: true,
-    };
-  }
-
+export default class Index extends React.Component {
   timer: NodeJS.Timeout | undefined;
 
   componentDidMount() {
@@ -26,8 +16,3 @@ class Index extends React.Component {
     return <Login />;
   }
 }
-
-export default connect(
-  () => ({}),
-  () => ({}),
-)(Index);
