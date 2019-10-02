@@ -9,19 +9,19 @@ interface FaunaEffect {
 
 export type FaunaOfflineAction = offlineTypes.OfflineAction & {
   meta: {
-    offline: offlineTypes.OfflineMetadata & FaunaEffect;
-    transaction?: number;
+    offline: FaunaEffect;
   };
 };
 
 export type OfflineAction<T> = Action<T> & FaunaOfflineAction;
 
-async function effect(_: any, action: OfflineAction<any>) {
+async function effect<T>(_: any, action: OfflineAction<T>) {
   return (await client).query(action.meta.offline.effect);
 }
 
 type DiscardFn = (error: any, action: offlineTypes.OfflineAction, retries: number) => boolean;
 const discard: DiscardFn = (resp: any) => {
+  console.log(resp);
   const errors = resp.errors ? resp.errors() : [];
   return errors.length > 0;
 };
@@ -33,3 +33,11 @@ export const config = {
   //   persistCallback: () => {
   //   },
 };
+
+export const commit = (type: string) => ({
+  type: type,
+  meta: {
+    success: true,
+    completed: true,
+  },
+});

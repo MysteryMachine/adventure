@@ -21,11 +21,3 @@ export const client: Promise<Client> = subSecret
       .catch(() => {
         return new Client({ secret: '' });
       });
-
-export enum Collection {
-  User = 'user',
-}
-
-export enum Index {
-  AllUsers = 'all_users',
-}

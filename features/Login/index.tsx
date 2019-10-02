@@ -17,7 +17,10 @@ export const Login = () => {
         <Input type="password" name="password" value={password} onStateChange={setPassword} />
         <Button>Login</Button>
         <Body>
-          New? <Link href="/register">Join us!</Link>
+          New?
+          <Link href="/register">
+            <a>Join us!</a>
+          </Link>
         </Body>
       </Panel>
     </div>
